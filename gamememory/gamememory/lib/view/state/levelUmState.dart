@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/button.dart';
+import '../factory/buttonfactory.dart';
 import 'LevelState.dart';
 
 class LevelUmState extends LevelState {
@@ -21,7 +21,7 @@ class LevelUmState extends LevelState {
   @override
   Widget gerarGame() {
     return Column(
-       mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
           child: Container(
@@ -31,67 +31,51 @@ class LevelUmState extends LevelState {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Button(
-                      color: cores[0],
-                      function: () {
-                        addresposta(0);
-                      }),
-                  Button(
-                      color: cores[3],
-                      function: () {
-                        addresposta(3);
-                      }),
-                  Button(
-                      color: cores[6],
-                      function: () {
-                        addresposta(6);
-                      }),
+                  ButtonFactory.createButton(cores[0], () {
+                    addresposta(0);
+                  }),
+                  ButtonFactory.createButton(cores[3], () {
+                    addresposta(3);
+                  }),
+                  ButtonFactory.createButton(cores[6], () {
+                    addresposta(6);
+                  }),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Button(
-                      color: cores[1],
-                      function: () {
-                        addresposta(1);
-                      }),
-                  Button(
-                      color: cores[4],
-                      function: () {
-                        addresposta(4);
-                      }),
-                  Button(
-                      color: cores[7],
-                      function: () {
-                        addresposta(7);
-                      }),
+                  ButtonFactory.createButton(cores[1], () {
+                    addresposta(1);
+                  }),
+                  ButtonFactory.createButton(cores[4], () {
+                    addresposta(4);
+                  }),
+                  ButtonFactory.createButton(cores[7], () {
+                    addresposta(7);
+                  }),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Button(
-                      color: cores[2],
-                      function: () {
-                        addresposta(2);
-                      }),
-                  Button(
-                      color: cores[5],
-                      function: () {
-                        addresposta(5);
-                      }),
-                  Button(
-                      color: cores[8],
-                      function: () {
-                        addresposta(8);
-                      }),
+                  ButtonFactory.createButton(cores[2], () {
+                    addresposta(2);
+                  }),
+                  ButtonFactory.createButton(cores[5], () {
+                    addresposta(5);
+                  }),
+                  ButtonFactory.createButton(cores[8], () {
+                    addresposta(8);
+                  }),
                 ],
               )
             ]),
           ),
         ),
-        SizedBox(height: 100,),
+        SizedBox(
+          height: 100,
+        ),
         Container(
           height: 70,
           decoration: BoxDecoration(color: Colors.purple.shade900),
@@ -104,7 +88,9 @@ class LevelUmState extends LevelState {
                     onPressed: () {
                       piscarsequencia();
                     },
-                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.amber)),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.amber)),
                     child: Text("iniciar")),
               ),
               Padding(
@@ -113,7 +99,9 @@ class LevelUmState extends LevelState {
                     onPressed: () {
                       verificarsequencia();
                     },
-                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.amber)),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.amber)),
                     child: Text("finalizar")),
               ),
             ],
