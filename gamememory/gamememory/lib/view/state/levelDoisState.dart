@@ -5,12 +5,11 @@ import 'LevelState.dart';
 class LevelDoisState extends LevelState {
   List<Color> cores;
   void Function(int) addresposta;
-
+  void Function() gerarsequencia;
   void Function() piscarsequencia;
   void Function() verificarsequencia;
   int qtdCartas = 16;
   int level = 2;
-  void Function() gerarsequencia;
   LevelDoisState(
       {required this.addresposta,
       required this.cores,
@@ -31,7 +30,7 @@ class LevelDoisState extends LevelState {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
-          child: Container(
+          child: SizedBox(
             height: 400,
             width: 400,
             child: Row(
@@ -109,7 +108,7 @@ class LevelDoisState extends LevelState {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Container(
@@ -128,7 +127,7 @@ class LevelDoisState extends LevelState {
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child: Text("iniciar")),
+                    child:const Text("iniciar")),
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -139,7 +138,7 @@ class LevelDoisState extends LevelState {
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child: Text("finalizar")),
+                    child:const Text("finalizar")),
               ),
             ],
           ),

@@ -5,11 +5,11 @@ import 'LevelState.dart';
 class LevelTresState extends LevelState {
   List<Color> cores;
   void Function(int) addresposta;
+  void Function() gerarsequencia;
   void Function() piscarsequencia;
   void Function() verificarsequencia;
   int qtdCartas = 25;
   int level = 3;
-void Function() gerarsequencia;
   LevelTresState(
       {required this.addresposta,
       required this.cores,
@@ -20,6 +20,7 @@ void Function() gerarsequencia;
   int getNcartas() {
     return qtdCartas;
   }
+   @override
   int getLevel() {
     return level;
   }
@@ -29,7 +30,7 @@ void Function() gerarsequencia;
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
-          child: Container(
+          child: SizedBox(
             height: 400,
             width: 400,
             child: Row(
@@ -139,7 +140,7 @@ void Function() gerarsequencia;
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Container(
@@ -158,7 +159,7 @@ void Function() gerarsequencia;
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child: Text("iniciar")),
+                    child:const Text("iniciar")),
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -169,7 +170,7 @@ void Function() gerarsequencia;
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child: Text("finalizar")),
+                    child:const Text("finalizar")),
               ),
             ],
           ),

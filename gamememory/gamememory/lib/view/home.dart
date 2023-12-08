@@ -28,12 +28,17 @@ class _MyAppState extends State<MyApp> {
       sequencia = getSequence();
     });
   }
+  cleanSequence(){
+    setState(() {
+      sequencia = [];
+    });
+  }
   void mudarcor(int index) async {
     setState(() {
       cores[index] = Colors.black;
     });
 
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     setState(() {
       cores[index] = Colors.purple.shade900;
@@ -44,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     for (int i = 0; i < sequencia.length; i++) {
       mudarcor(sequencia[i]);
 
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
     }
   }
 
@@ -90,12 +95,12 @@ class _MyAppState extends State<MyApp> {
           builder: (BuildContext context) {
             // retorna um objeto do tipo Dialog
             return AlertDialog(
-              title: new Text("Você perdeu :("),
-              content: new Text("tente novamente para aumentar seu nivel"),
+              title: const  Text("Você perdeu :("),
+              content: const Text("tente novamente para aumentar seu nivel"),
               actions: <Widget>[
                 // define os botões na base do dialogo
-                new ElevatedButton(
-                  child: new Text("Fechar"),
+                ElevatedButton(
+                  child: const Text("Fechar"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -112,7 +117,7 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context) {
         // retorna um objeto do tipo Dialog
         return AlertDialog(
-          title: new Text("selecione um level"),
+          title: const Text("selecione um level"),
           content: Row(
             children: [
               ElevatedButton(
@@ -132,7 +137,7 @@ class _MyAppState extends State<MyApp> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
                 ),
-                child: Text("1"),
+                child: const Text("1"),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -151,7 +156,7 @@ class _MyAppState extends State<MyApp> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
                 ),
-                child: Text("2"),
+                child:const Text("2"),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -170,7 +175,7 @@ class _MyAppState extends State<MyApp> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
                 ),
-                child: Text("3"),
+                child:const Text("3"),
               ),
             ],
           ),
@@ -188,7 +193,7 @@ class _MyAppState extends State<MyApp> {
         actions: <Widget>[
           IconButton(
             // Botão à direita 1
-            icon: Icon(Icons.auto_awesome),
+            icon:const Icon(Icons.auto_awesome),
             onPressed: () {
               setLevel();
             },
@@ -196,7 +201,7 @@ class _MyAppState extends State<MyApp> {
         ],
       ),
       body: levelState == null
-          ? Center(child: Text("selecione um nivel para começar"))
+          ?const Center(child: Text("selecione um nivel para começar"))
           : levelState!.gerarGame(),
     );
   }

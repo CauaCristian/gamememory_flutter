@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import '../factory/buttonfactory.dart';
 import 'LevelState.dart';
@@ -5,11 +6,11 @@ import 'LevelState.dart';
 class LevelUmState extends LevelState {
   List<Color> cores;
   void Function(int) addresposta;
+  void Function() gerarsequencia;
   void Function() piscarsequencia;
   void Function() verificarsequencia;
   int qtdCartas = 9;
   int level = 1;
-void Function() gerarsequencia;
   LevelUmState(
       {required this.addresposta,
       required this.cores,
@@ -31,7 +32,7 @@ void Function() gerarsequencia;
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
-          child: Container(
+          child: SizedBox(
             height: 400,
             width: 400,
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -80,7 +81,7 @@ void Function() gerarsequencia;
             ]),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Container(
@@ -99,7 +100,7 @@ void Function() gerarsequencia;
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child: Text("iniciar")),
+                    child:const Text("iniciar")),
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -110,7 +111,7 @@ void Function() gerarsequencia;
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child: Text("finalizar")),
+                    child:const Text("finalizar")),
               ),
             ],
           ),

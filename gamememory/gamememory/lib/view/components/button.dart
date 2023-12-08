@@ -4,7 +4,7 @@ class Button extends StatelessWidget {
   final Color color;
   final void Function() function;
 
-  Button({required this.color, required this.function});
+  const Button({required this.color, required this.function});
 
   @override
   Widget build(BuildContext context) {
