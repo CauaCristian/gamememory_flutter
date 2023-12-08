@@ -74,12 +74,12 @@ class _MyAppState extends State<MyApp> {
       showDialog(
           context: context,
           builder: (BuildContext context) {
-            // retorna um objeto do tipo Dialog
+
             return AlertDialog(
               title: const Text("Você ganhou !!!"),
               content: const Text("parabens aumente seu nivel"),
               actions: <Widget>[
-                // define os botões na base do dialogo
+
                 ElevatedButton(
                   child: const Text("Fechar"),
                   onPressed: () {
@@ -94,12 +94,12 @@ class _MyAppState extends State<MyApp> {
       showDialog(
           context: context,
           builder: (BuildContext context) {
-            // retorna um objeto do tipo Dialog
+
             return AlertDialog(
               title: const  Text("Você perdeu :("),
               content: const Text("tente novamente para aumentar seu nivel"),
               actions: <Widget>[
-                // define os botões na base do dialogo
+
                 ElevatedButton(
                   child: const Text("Fechar"),
                   onPressed: () {
@@ -117,7 +117,7 @@ class _MyAppState extends State<MyApp> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        // retorna um objeto do tipo Dialog
+
         return AlertDialog(
           title: const Text("selecione um level"),
           content: Row(
@@ -136,7 +136,7 @@ class _MyAppState extends State<MyApp> {
                     );
                   });
                   Navigator.of(context).pop();
-                  setState(() {}); // Force a reconstrução da interface
+                  setState(() {});
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
@@ -200,7 +200,7 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Colors.purple.shade900,
         actions: <Widget>[
           IconButton(
-            // Botão à direita 1
+
             icon:const Icon(Icons.auto_awesome),
             onPressed: () {
               setLevel();
