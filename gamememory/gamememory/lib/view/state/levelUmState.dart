@@ -9,10 +9,11 @@ class LevelUmState extends LevelState {
   void Function() verificarsequencia;
   int qtdCartas = 9;
   int level = 1;
-
+void Function() gerarsequencia;
   LevelUmState(
       {required this.addresposta,
       required this.cores,
+      required this.gerarsequencia,
       required this.piscarsequencia,
       required this.verificarsequencia});
   @override
@@ -92,6 +93,7 @@ class LevelUmState extends LevelState {
                 padding: const EdgeInsets.all(16),
                 child: ElevatedButton(
                     onPressed: () {
+                      gerarsequencia();
                       piscarsequencia();
                     },
                     style: ButtonStyle(

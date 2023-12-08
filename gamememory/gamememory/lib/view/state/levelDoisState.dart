@@ -5,14 +5,16 @@ import 'LevelState.dart';
 class LevelDoisState extends LevelState {
   List<Color> cores;
   void Function(int) addresposta;
+
   void Function() piscarsequencia;
   void Function() verificarsequencia;
   int qtdCartas = 16;
   int level = 2;
-
+  void Function() gerarsequencia;
   LevelDoisState(
       {required this.addresposta,
       required this.cores,
+      required this.gerarsequencia,
       required this.piscarsequencia,
       required this.verificarsequencia});
   @override
@@ -120,6 +122,7 @@ class LevelDoisState extends LevelState {
                 padding: const EdgeInsets.all(16),
                 child: ElevatedButton(
                     onPressed: () {
+                      gerarsequencia();
                       piscarsequencia();
                     },
                     style: ButtonStyle(

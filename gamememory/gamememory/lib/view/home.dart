@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<int> sequencia = [];
   List<int> resposta = [];
-  List<Color> cores = [];
+  List<Color> cores = List.filled(25, Colors.purple.shade900);
   LevelState? levelState;
 
   List<int> getSequence(){
@@ -23,13 +23,11 @@ class _MyAppState extends State<MyApp> {
     }
     return [];
   }
-  List<Color> getColors(){
-    if(levelState != null){
-      return List.filled(levelState!.getNcartas(), Colors.purple.shade900);
-    }
-    return [];
+  setSequence(){
+    setState(() {
+      sequencia = getSequence();
+    });
   }
-
   void mudarcor(int index) async {
     setState(() {
       cores[index] = Colors.black;
@@ -120,12 +118,12 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    cores = getColors();
                     levelState = LevelUmState(
                       addresposta: addresposta,
                       cores: cores,
                       piscarsequencia: piscarsequencia,
                       verificarsequencia: verificarsequencia,
+                      gerarsequencia: setSequence
                     );
                   });
                   Navigator.of(context).pop();
@@ -144,10 +142,11 @@ class _MyAppState extends State<MyApp> {
                       cores: cores,
                       piscarsequencia: piscarsequencia,
                       verificarsequencia: verificarsequencia,
+                      gerarsequencia: setSequence
                     );
                   });
                   Navigator.of(context).pop();
-                  setState(() {}); // Force a reconstrução da interface
+                  setState(() {});
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
@@ -162,10 +161,11 @@ class _MyAppState extends State<MyApp> {
                       cores: cores,
                       piscarsequencia: piscarsequencia,
                       verificarsequencia: verificarsequencia,
+                      gerarsequencia: setSequence
                     );
                   });
                   Navigator.of(context).pop();
-                  setState(() {}); // Force a reconstrução da interface
+                  setState(() {});
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
