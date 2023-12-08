@@ -4,14 +4,14 @@ import 'state/levelUmState.dart';
 import 'state/levelDoisState.dart';
 import 'state/LevelTresState.dart';
 import '../control/sequenceProxyControl.dart';
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MyGame extends StatefulWidget {
+  const MyGame({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyGame> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyGame> {
   List<int> sequencia = [];
   List<int> resposta = [];
   List<Color> cores = List.filled(25, Colors.purple.shade900);
