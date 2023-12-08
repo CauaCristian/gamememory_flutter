@@ -9,7 +9,7 @@ class LevelTresState extends LevelState {
   void Function() verificarsequencia;
   int qtdCartas = 25;
   int level = 3;
-
+  
   LevelTresState(
       {required this.addresposta,
       required this.cores,
@@ -19,7 +19,6 @@ class LevelTresState extends LevelState {
   int getNcartas() {
     return qtdCartas;
   }
-  @override
   int getLevel() {
     return level;
   }
