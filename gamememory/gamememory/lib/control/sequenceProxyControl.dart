@@ -1,4 +1,4 @@
-import '../model/sequenceProxy.dart';
+import '../model/proxy/sequenceProxy.dart';
 
 class SequenceProxyControl {
   final SequenceProxy _sequenceProxy;

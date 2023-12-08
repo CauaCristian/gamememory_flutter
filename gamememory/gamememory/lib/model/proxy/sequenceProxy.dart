@@ -1,4 +1,4 @@
-import 'sequence.dart';
+import '../sequence.dart';
 class SequenceProxy {
   Sequence? _realSequence;
   int? _userLevel;
