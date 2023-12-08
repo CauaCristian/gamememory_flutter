@@ -8,6 +8,8 @@ class LevelUmState extends LevelState {
   void Function() piscarsequencia;
   void Function() verificarsequencia;
   int qtdCartas = 9;
+  int level = 1;
+
   LevelUmState(
       {required this.addresposta,
       required this.cores,
@@ -16,6 +18,10 @@ class LevelUmState extends LevelState {
   @override
   int getNcartas() {
     return qtdCartas;
+  }
+  @override
+  int getLevel() {
+    return level;
   }
 
   @override

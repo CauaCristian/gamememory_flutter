@@ -8,6 +8,7 @@ class LevelDoisState extends LevelState {
   void Function() piscarsequencia;
   void Function() verificarsequencia;
   int qtdCartas = 16;
+  int level = 2;
 
   LevelDoisState(
       {required this.addresposta,
@@ -18,7 +19,10 @@ class LevelDoisState extends LevelState {
   int getNcartas() {
     return qtdCartas;
   }
-
+  @override
+  int getLevel() {
+    return level;
+  }
   @override
   Widget gerarGame() {
     return Column(

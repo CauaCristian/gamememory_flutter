@@ -12,10 +12,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Color> cores = List.filled(25, Colors.purple.shade900);
+
   List<int> sequencia = [0, 1, 3, 8, 6, 5];
   List<int> resposta = [];
   LevelState? levelState;
+  List<Color> cores = List.filled(25, Colors.purple.shade900);
 
   @override
   void initState() {
@@ -66,12 +67,12 @@ class _MyAppState extends State<MyApp> {
           builder: (BuildContext context) {
             // retorna um objeto do tipo Dialog
             return AlertDialog(
-              title: new Text("Você ganhou !!!"),
-              content: new Text("parabens aumente seu nivel"),
+              title: const Text("Você ganhou !!!"),
+              content: const Text("parabens aumente seu nivel"),
               actions: <Widget>[
                 // define os botões na base do dialogo
-                new ElevatedButton(
-                  child: new Text("Fechar"),
+                ElevatedButton(
+                  child: const Text("Fechar"),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
