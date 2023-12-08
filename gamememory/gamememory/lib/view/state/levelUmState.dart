@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../factory/buttonfactory.dart';
 import 'LevelState.dart';
@@ -11,16 +10,19 @@ class LevelUmState extends LevelState {
   void Function() verificarsequencia;
   int qtdCartas = 9;
   int level = 1;
+  void Function() limparResposta;
   LevelUmState(
       {required this.addresposta,
       required this.cores,
       required this.gerarsequencia,
       required this.piscarsequencia,
-      required this.verificarsequencia});
+      required this.verificarsequencia,
+      required this.limparResposta});
   @override
   int getNcartas() {
     return qtdCartas;
   }
+
   @override
   int getLevel() {
     return level;
@@ -100,18 +102,20 @@ class LevelUmState extends LevelState {
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.amber)),
-                    child:const Text("iniciar")),
+                    child: const Text("iniciar")),
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: ElevatedButton(
-                    onPressed: () {
-                      verificarsequencia();
-                    },
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.amber)),
-                    child:const Text("finalizar")),
+                  onPressed: () {
+                    verificarsequencia();
+                    limparResposta();
+                  },
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.amber)),
+                  child: const Text("finalizar"),
+                ),
               ),
             ],
           ),

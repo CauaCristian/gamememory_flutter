@@ -28,9 +28,9 @@ class _MyAppState extends State<MyApp> {
       sequencia = getSequence();
     });
   }
-  cleanSequence(){
+  cleanResponse(){
     setState(() {
-      sequencia = [];
+      resposta = [];
     });
   }
   void mudarcor(int index) async {
@@ -83,6 +83,7 @@ class _MyAppState extends State<MyApp> {
                 ElevatedButton(
                   child: const Text("Fechar"),
                   onPressed: () {
+                    cleanResponse();
                     Navigator.of(context).pop();
                   },
                 ),
@@ -102,6 +103,7 @@ class _MyAppState extends State<MyApp> {
                 ElevatedButton(
                   child: const Text("Fechar"),
                   onPressed: () {
+                    cleanResponse();
                     Navigator.of(context).pop();
                   },
                 ),
@@ -122,13 +124,15 @@ class _MyAppState extends State<MyApp> {
             children: [
               ElevatedButton(
                 onPressed: () {
+                  cleanResponse();
                   setState(() {
                     levelState = LevelUmState(
                       addresposta: addresposta,
                       cores: cores,
                       piscarsequencia: piscarsequencia,
                       verificarsequencia: verificarsequencia,
-                      gerarsequencia: setSequence
+                      gerarsequencia: setSequence,
+                      limparResposta: cleanResponse
                     );
                   });
                   Navigator.of(context).pop();
@@ -141,13 +145,15 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  cleanResponse();
                   setState(() {
                     levelState = LevelDoisState(
                       addresposta: addresposta,
                       cores: cores,
                       piscarsequencia: piscarsequencia,
                       verificarsequencia: verificarsequencia,
-                      gerarsequencia: setSequence
+                      gerarsequencia: setSequence,
+                      limparResposta: cleanResponse
                     );
                   });
                   Navigator.of(context).pop();
@@ -160,13 +166,15 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  cleanResponse();
                   setState(() {
                     levelState = LevelTresState(
                       addresposta: addresposta,
                       cores: cores,
                       piscarsequencia: piscarsequencia,
                       verificarsequencia: verificarsequencia,
-                      gerarsequencia: setSequence
+                      gerarsequencia: setSequence,
+                      limparResposta: cleanResponse
                     );
                   });
                   Navigator.of(context).pop();

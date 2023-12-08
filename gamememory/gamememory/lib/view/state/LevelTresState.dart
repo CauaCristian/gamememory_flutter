@@ -10,12 +10,14 @@ class LevelTresState extends LevelState {
   void Function() verificarsequencia;
   int qtdCartas = 25;
   int level = 3;
+  void Function() limparResposta;
   LevelTresState(
       {required this.addresposta,
       required this.cores,
       required this.gerarsequencia,
       required this.piscarsequencia,
-      required this.verificarsequencia});
+      required this.verificarsequencia,
+      required this.limparResposta});
   @override
   int getNcartas() {
     return qtdCartas;
@@ -166,6 +168,7 @@ class LevelTresState extends LevelState {
                 child: ElevatedButton(
                     onPressed: () {
                       verificarsequencia();
+                      limparResposta();
                     },
                     style: ButtonStyle(
                         backgroundColor:
