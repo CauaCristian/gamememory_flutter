@@ -3,7 +3,7 @@ import 'state/LevelState.dart';
 import 'state/levelUmState.dart';
 import 'state/levelDoisState.dart';
 import 'state/LevelTresState.dart';
-
+import '../control/sequenceProxyControl.dart';
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -12,16 +12,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  List<int> sequencia = [0, 1, 3, 8, 6, 5];
+  List<int> sequencia = [];
   List<int> resposta = [];
+  List<Color> cores = [];
   LevelState? levelState;
-  List<Color> cores = List.filled(25, Colors.purple.shade900);
 
-  @override
-  void initState() {
-    super.initState();
-    levelState = null;
+  List<int> getSequence(){
+    if(levelState != null){
+      return SequenceProxyControl(levelState!.getLevel()).generateSequence();
+    }
+    return [];
+  }
+  List<Color> getColors(){
+    if(levelState != null){
+      return List.filled(levelState!.getNcartas(), Colors.purple.shade900);
+    }
+    return [];
   }
 
   void mudarcor(int index) async {
@@ -114,6 +120,7 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
+                    cores = getColors();
                     levelState = LevelUmState(
                       addresposta: addresposta,
                       cores: cores,
